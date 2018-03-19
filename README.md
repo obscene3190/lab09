@@ -133,9 +133,9 @@ $ gistup -m "lab${LAB_NUMBER}"
 ## Links
 
 - [GitHub](https://github.com)
-- [Bitbucket](https://bitbucket.org)
-- [Gitlab](https://about.gitlab.com)
-- [LearnGitBranching](http://learngitbranching.js.org/)
+- [Bitbucket](https://bitbucket.org) Веб-сервис для хостинга проектов и их совместной разработки, основанный на системе контроля версий Mercurial и Git.
+- [Gitlab](https://about.gitlab.com) Сайт и система управления репозиториями кода для Git, из дополнительных возможностей: собственная вики и система отслеживания ошибок.
+- [LearnGitBranching](http://learngitbranching.js.org/) - программа для обучения работы с ветками в Git
 
 ```
 Copyright (c) 2017 Братья Вершинины
