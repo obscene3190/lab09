@@ -12,10 +12,10 @@ add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) // До�
 target_include_directories(print PUBLIC 
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-) //добавления путей поиска заголовков, от которых зависит цель
+) //добавления путей поиска заголовков, от которых зависит цель | Add include directories to a target.
 
 if(BUILD_EXAMPLES)
-  file(GLOB EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp") //Выводит типы указанных файлов
+  file(GLOB EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp") //Выводит типы указанных файлов | File manipulation command.
   foreach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES}) //Evaluate[оценивает] a group of commands for each value in a list.
     get_filename_component(EXAMPLE_NAME ${EXAMPLE_SOURCE} NAME_WE) // Get a specific component of a full filename.
     add_executable(${EXAMPLE_NAME} ${EXAMPLE_SOURCE}) //Синтаксис: add_executable(<имя> <список исходников...>), целью является исполняемый файл, Add an executable to the project using the specified source files. 
