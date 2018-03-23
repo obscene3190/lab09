@@ -7,28 +7,28 @@ option(BUILD_EXAMPLES "Build examples" OFF)
 
 project(print) // project(<имя> VERSION <версия> LANGUAGES CXX)
 
-add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) // Подключение библиотеки
+add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) // Добавляем цель - статическую библиотеку | Add a library to the project using the specified source files.
 
-target_include_directories(print PUBLIC //добавления путей поиска заголовков, от которых зависит цель
+target_include_directories(print PUBLIC 
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-)
+) //добавления путей поиска заголовков, от которых зависит цель
 
 if(BUILD_EXAMPLES)
-  file(GLOB EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp")
-  foreach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES})
-    get_filename_component(EXAMPLE_NAME ${EXAMPLE_SOURCE} NAME_WE)
-    add_executable(${EXAMPLE_NAME} ${EXAMPLE_SOURCE})
-    target_link_libraries(${EXAMPLE_NAME} print)
+  file(GLOB EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp") //Выводит типы указанных файлов
+  foreach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES}) //Evaluate[оценивает] a group of commands for each value in a list.
+    get_filename_component(EXAMPLE_NAME ${EXAMPLE_SOURCE} NAME_WE) // Get a specific component of a full filename.
+    add_executable(${EXAMPLE_NAME} ${EXAMPLE_SOURCE}) //Синтаксис: add_executable(<имя> <список исходников...>), целью является исполняемый файл, Add an executable to the project using the specified source files. 
+    target_link_libraries(${EXAMPLE_NAME} print) // используется  для добавления статических и динамических библиотек, от которых зависит цель
     install(TARGETS ${EXAMPLE_NAME}
       RUNTIME DESTINATION bin
-    )
+    ) //This command generates installation rules for a project. Executables[исполняемые файлы] are treated[рассматриваются] as RUNTIME
   endforeach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES})
 endif()
 
 install(TARGETS print
     EXPORT print-config
-    ARCHIVE DESTINATION lib
+    ARCHIVE DESTINATION lib // Specify the directory on disk to which a file will be installed
     LIBRARY DESTINATION lib
 )
 
