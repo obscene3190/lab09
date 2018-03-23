@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0) // Указывает последнюю доступную вам версию CMake.
 
-set(CMAKE_CXX_STANDARD 11) // Eстанавливает значение переменных CMake cache и enviroment на указанные значения
+set(CMAKE_CXX_STANDARD 11) // Устанавливает значение переменных CMake cache и enviroment на указанные значения
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_EXAMPLES "Build examples" OFF)
