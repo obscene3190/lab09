@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_EXAMPLES "Build examples" OFF)
 
-project(print) // project(<имя> VERSION <версия> LANGUAGES CXX)
+project(print) // project(<имя> VERSION <версия> LANGUAGES CXX) Set a name, version, and enable languages for the entire project.
 
 add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) // Добавляем цель - статическую библиотеку | Add a library to the project using the specified source files.
 
