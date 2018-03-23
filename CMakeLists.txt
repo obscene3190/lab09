@@ -1,15 +1,15 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0) // Указывает последнюю доступную вам версию CMake.
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_EXAMPLES "Build examples" OFF)
 
-project(print)
+project(print) // project(<имя> VERSION <версия> LANGUAGES CXX)
 
-add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
+add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) // Подключение библиотеки
 
-target_include_directories(print PUBLIC
+target_include_directories(print PUBLIC //добавления путей поиска заголовков, от которых зависит цель
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
