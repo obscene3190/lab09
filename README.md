@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/obscene3190/lab06.svg?branch=master)](https://travis-ci.org/obscene3190/lab06)
+[![Build Status](https://travis-ci.org/obscene3190/lab07.svg?branch=master)](https://travis-ci.org/obscene3190/lab07)
 ## Laboratory work III
 
 Данная лабораторная работа посвещена изучению систем контроля версий на примере **Git**.
