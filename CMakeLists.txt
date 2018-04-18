@@ -7,6 +7,13 @@ option(BUILD_EXAMPLES "Build examples" OFF)
 option(BUILD_TESTS "Build tests" OFF)
 
 project(print) # project(<имя> VERSION <версия> LANGUAGES CXX) Устанавливает имя, версию и язык для проекта
+set(PRINT_VERSION_MAJOR 0)
+set(PRINT_VERSION_MINOR 1)
+set(PRINT_VERSION_PATCH 0)
+set(PRINT_VERSION_TWEAK 0)
+set(PRINT_VERSION 
+${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})
+set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
 
 add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) # Добавляем статическую библиотеку, используя указанный ресурс
 
@@ -42,3 +49,5 @@ add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
 target_link_libraries(check ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
 add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes") 
 endif()
+
+include(CPackConfig.cmake)
